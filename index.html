@@ -4,40 +4,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Website</title>
+    <title>DashFlow | Admin Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav>
-        <h2>MyWebsite</h2>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<div class="dashboard">
 
-    <section id="home" class="hero">
-        <h1>Welcome to My Website!</h1>
-        <p>This is my first GitHub Pages website.</p>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="logo">✦ DashFlow</div>
 
-        <button onclick="changeColor()">
-            Change Background
-        </button>
+        <p class="menu-label">MAIN MENU</p>
 
-        <h3 id="clock">Loading clock...</h3>
-    </section>
+        <a href="#" class="nav-link active">▦ Overview</a>
+        <a href="#analytics" class="nav-link">▥ Analytics</a>
+        <a href="#orders" class="nav-link">🛒 Orders</a>
+        <a href="#customers" class="nav-link">♙ Customers</a>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am learning HTML, CSS, and JavaScript.</p>
-    </section>
+        <p class="menu-label">PREFERENCES</p>
 
-    <footer id="contact">
-        <p>© 2026 MyWebsite | Built with HTML, CSS & JS</p>
-    </footer>
+        <a href="#" class="nav-link" id="themeToggle">◐ Toggle Theme</a>
+        <a href="#settings" class="nav-link">⚙ Settings</a>
 
-    <script src="script.js"></script>
+        <div class="sidebar-bottom">
+            <div class="avatar">JD</div>
+            <div>
+                <strong>John Doe</strong>
+                <small>Administrator</small>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <button class="menu-button" id="menuButton">☰</button>
+                <h2>Dashboard Overview</h2>
+                <p>Welcome back! Here's what's happening today.</p>
+            </div>
+
+            <div class="top-actions">
+                <span id="today"></span>
+                <button class="notification">♢</button>
+            </div>
+        </header>
+
+        <!-- Search -->
+        <div class="search-container">
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search transactions..."
+            >
+        </div>
+
+        <!-- Statistics -->
+        <section class="stats-grid">
+
+            <div class="stat-card blue">
+                <span>Total Revenue</span>
+                <h2>$24,500</h2>
+                <small>↑ 12.5% this month</small>
+            </div>
+
+            <div class="stat-card green">
+                <span>Total Users</span>
+                <h2>1,250</h2>
+                <small>↑ 8.2% this month</small>
+            </div>
+
+            <div class="stat-card orange">
+                <span>Total Orders</span>
+                <h2>320</h2>
+                <small>↑ 5.4% this month</small>
+            </div>
+
+            <div class="stat-card purple">
+                <span>Growth Rate</span>
+                <h2>18.5%</h2>
+                <small>↑ 3.1% this month</small>
+            </div>
+
+        </section>
+
+        <!-- Chart -->
+        <section class="panel" id="analytics">
+            <div class="panel-header">
+                <div>
+                    <h3>Sales Overview</h3>
+                    <p>Monthly revenue performance</p>
+                </div>
+
+                <select id="chartPeriod">
+                    <option value="monthly">Monthly</option>
+                    <option value="weekly">Weekly</option>
+                </select>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="salesChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Transactions -->
+        <section class="panel" id="orders">
+            <div class="panel-header">
+                <div>
+                    <h3>Recent Transactions</h3>
+                    <p>Latest customer purchases</p>
+                </div>
+
+                <button id="addOrder" class="primary-button">
+                    + Add Order
+                </button>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Customer</th>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="transactionList"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            © 2026 DashFlow. Built with HTML, CSS & JavaScript.
+        </footer>
+
+    </main>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
